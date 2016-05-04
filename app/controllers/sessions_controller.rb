@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       # elsif user.type == 'Student'
       #   redirect_to student_path(@student)
       # end
-      redirect_to user_path
+      redirect_to user_path(user)
     else
       render 'new'
     end
