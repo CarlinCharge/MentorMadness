@@ -1,1 +1,1 @@
-![Project Schema](https://github.com/nyc-rock-doves-2016/MentorMadness/blob/schema/Schema.png?raw=true "Logo Title Text 1")
+![Project Schema](https://raw.githubusercontent.com/nyc-rock-doves-2016/MentorMadness/schema/Schema.png "Logo Title Text 1")
