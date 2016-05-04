@@ -1,28 +1,34 @@
-== README
+![Project Schema](https://raw.githubusercontent.com/nyc-rock-doves-2016/MentorMadness/schema/Schema.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# H1 Mentor User Story:
 
-Things you may want to cover:
+## H2 Log In
 
-* Ruby version
+* Profile page
 
-* System dependencies
+* Create appointments
+  * Start time
+  * End Time
+  * Topics
+  * Phase
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Read all created appointments
+* Update appointments
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+# H1 Student User Story:
+
+## H2 Log In
+
+* Book an appointment
+* See all booked appointments
+
+
+
+## H2 Default User Story
+
+* Create a review
+* Delete an appointment
+
+
+
