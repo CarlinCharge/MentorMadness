@@ -1,0 +1,25 @@
+<%= form_tag "/users" do %>
+  <p>
+    <%= label_tag :full_name %><br>
+    <%= text_field_tag 'user[full_name]' %>
+  </p>
+
+  <p>
+    <%= select_tag "type", "<option>Student</option><option>Mentor</option>".html_safe %><br>
+  </p>
+
+  <p>
+    <%= label_tag :email %><br>
+    <%= email_field_tag 'user[email]' %>
+  </p>
+
+  <p>
+    <%= label_tag :password %><br>
+    <%= password_field_tag 'user[password]' %>
+  </p>
+
+  <p>
+    <%= submit_tag "Register" %>
+  </p>
+<% end %>
+
