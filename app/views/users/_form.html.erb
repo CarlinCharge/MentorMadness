@@ -5,7 +5,8 @@
   </p>
 
   <p>
-    <%= select_tag "type", "<option>Student</option><option>Mentor</option>".html_safe %><br>
+    <%= label_tag "Student or Mentor" %><br>
+    <%= text_field_tag 'user[type]' %>
   </p>
 
   <p>

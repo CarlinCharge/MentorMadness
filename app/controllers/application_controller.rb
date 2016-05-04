@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     if logged_in?
       current_user.type.downcase
     else
-    'application'
+      'application'
     end
   end
 
