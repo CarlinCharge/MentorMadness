@@ -5,11 +5,9 @@ Rails.application.routes.draw do
   post "login" => "sessions#create", as: "new_login"
 
 
-  resources :users, only: [:show, :new, :create] do
-  end
+  resources :users, only: [:show, :new, :create] 
   
-  resources :appointments, only: [:index, :new, :create, :update, :show] do
-  end
+  resources :appointments, only: [:index, :new, :create, :update, :show]
 
   root "index#index"
 end
