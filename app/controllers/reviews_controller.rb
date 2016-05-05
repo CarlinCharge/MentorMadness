@@ -7,10 +7,12 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
     @appointment = Appointment.find_by(id: params[:id])
+    @user = User.find_by(id: session[:user_id])
+    @review = Review.new(review_params)
+
     if @review.save
-      redirect_to @review
+      redirect_to appointment_review_path
     else
       render 'new'
     end
@@ -21,5 +23,10 @@ class ReviewsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     redirect_to @appointment
   end
+
+  private
+    def review_params
+      params.require(:review).permit(:rating, :body, :user_id, :appointment_id)
+    end
 
 end
