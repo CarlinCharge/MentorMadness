@@ -8,6 +8,7 @@ class Appointment < ActiveRecord::Base
 
   validate :length_of_appointment_is_appropriate?
   validate :appointment_is_in_the_future?
+  # validate :overlap?
 
   def length_of_appointment_is_appropriate?
     
@@ -30,7 +31,7 @@ class Appointment < ActiveRecord::Base
   #   end
 
   #   if any_overlap
-  #     self.errors.add(start_time:, "Appointments overlap")
+  #     self.errors.add(:start_time, "Appointments overlap")
   #   end
   # end
 
