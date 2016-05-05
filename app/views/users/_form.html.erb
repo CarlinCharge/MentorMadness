@@ -6,7 +6,7 @@
 
   <p>
     <%= label_tag :type %><br>
-    <%= text_field_tag 'user[type]' %>
+    <%= select_tag 'user[type]', "<option>Student</option><option>Mentor</option>".html_safe %>
   </p>
 
   <p>
