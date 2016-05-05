@@ -4,8 +4,6 @@ class Appointment < ActiveRecord::Base
   has_many :topics, through: :appointment_topics
 
   validates :start_time, :end_time, :mentor_id, :phase, :body, presence: true
-<<<<<<< HEAD
-=======
 
   validate :length_of_appointment_is_appropriate?
   validate :appointment_is_in_the_future?
@@ -18,5 +16,4 @@ class Appointment < ActiveRecord::Base
     self.start_time > Time.now
   end
 
->>>>>>> master
 end
