@@ -11,7 +11,7 @@ class AppointmentsController < ApplicationController
 
 	def create
 		@appointment = Appointment.new(appointment_params)
-		@appointment.mentor_id == current_user.id
+		@appointment.mentor_id = current_user.id
 
 
 		@appointment.topics = params[:topics].split(" ").map do |topic_name|
