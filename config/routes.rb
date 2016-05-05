@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create]
 
-  resources :appointments, only: [:index, :new, :create, :update, :show] do
+  resources :appointments, only: [:index, :new, :create, :show, :update] do
   	resources :reviews, only: [:show, :create, :new]
   end
 

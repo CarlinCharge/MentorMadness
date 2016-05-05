@@ -31,11 +31,11 @@ class AppointmentsController < ApplicationController
 
 	def update
 		@appointment = Appointment.find(params[:id])
-
+		@appointment.student_id = session[:user_id]
 		if @appointment.update(appointment_params)
 			redirect_to @appointment
 		else
-			flash.now.alert = "Appointment was unable to update."
+			flash.now.alert = "Unable to book appointment."
 			render 'index'
 		end
 	end
