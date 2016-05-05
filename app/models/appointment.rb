@@ -21,14 +21,14 @@ class Appointment < ActiveRecord::Base
     end
   end
 
-  def overlap?
-    any_overlap = Appointment.where(mentor_id: self.mentor_id).any? do |appt|
-      self.start_time < appt.end_time && self.end_time > appt.start_time
-    end
+  # def overlap?
+  #   any_overlap = Appointment.where(mentor_id: self.mentor_id).any? do |appt|
+  #     self.start_time < appt.end_time && self.end_time > appt.start_time
+  #   end
 
-    if any_overlap
-      self.errors.add(start_time:, "Appointments overlap")
-    end
-  end
+  #   if any_overlap
+  #     self.errors.add(start_time:, "Appointments overlap")
+  #   end
+  # end
 
 end
