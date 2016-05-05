@@ -31,6 +31,7 @@ class AppointmentsController < ApplicationController
 		else
 			flash.now.alert = "Appointment was unable to update."
 			render 'index'
+		end
 	end
 
 	private
