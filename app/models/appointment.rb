@@ -3,5 +3,5 @@ class Appointment < ActiveRecord::Base
   has_one :Student
   has_many :topics, through: :appointment_topics
 
-  validates :start_time, :end_time, :mentor_id, :student_id, :phase, :body, presence: true
+  validates :start_time, :end_time, :mentor_id, :phase, :body, presence: true
 end
