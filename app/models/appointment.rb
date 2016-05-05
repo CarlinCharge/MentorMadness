@@ -10,13 +10,16 @@ class Appointment < ActiveRecord::Base
   validate :appointment_is_in_the_future?
 
   def length_of_appointment_is_appropriate?
-    if (self.end_time - self.start_time)/60 != 30 || (self.end_time - self.start_time)/60 != 60
+    
+    duration = ((self.end_time - self.start_time) * 24 * 60).to_i
+
+    if duration != 30 && duration != 60
       self.errors.add(:end_time, "Appointments must be in 30 or 60 minute increments")
     end
   end
 
   def appointment_is_in_the_future?
-    if self.start_time < Time.now
+    if self.start_time > Time.now
       self.errors.add(:start_time, "Appointments must be in the future")
     end
   end
