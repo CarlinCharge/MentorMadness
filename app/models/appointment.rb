@@ -11,7 +11,7 @@ class Appointment < ActiveRecord::Base
   # validate :overlap?
 
   def length_of_appointment_is_appropriate?
-    
+
     duration = ((self.end_time - self.start_time) * 24 * 60).to_i
 
     if duration != 30 && duration != 60
@@ -34,5 +34,13 @@ class Appointment < ActiveRecord::Base
   #     self.errors.add(:start_time, "Appointments overlap")
   #   end
   # end
+
+  def is_booked?
+    if self.student_id == nil
+      return false
+    else
+      return true
+    end
+  end
 
 end
