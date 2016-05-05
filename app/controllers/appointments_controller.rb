@@ -18,11 +18,12 @@ class AppointmentsController < ApplicationController
 		@appointment.topics = params[:topic_names].split(" ").map do |topic_name|
 			Topic.where(name: topic_name).first_or_initialize
 		end
-		
+
 		if @appointment.save
 			redirect_to @appointment
-		else
-			render 'new'
+			else
+				render 'new'
+			end
 		end
 	end
 
