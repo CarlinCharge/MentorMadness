@@ -6,8 +6,8 @@ class Appointment < ActiveRecord::Base
 
   validates :start_time, :end_time, :mentor_id, :phase, :body, presence: true
 
-  validate :length_of_appointment_is_appropriate?
-  validate :appointment_is_in_the_future?
+  # validate :length_of_appointment_is_appropriate?
+  # validate :appointment_is_in_the_future?
   # validate :overlap?
 
   def length_of_appointment_is_appropriate?
