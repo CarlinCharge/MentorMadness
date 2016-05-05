@@ -11,6 +11,13 @@ class AppointmentsController < ApplicationController
 
 	def create
 		@appointment = Appointment.new(appointment_params)
+		@user = User.find_by(id: session[:user_id])
+
+		@appointment.topics = []
+
+		@appointment.topics = params[:topic_names].split(" ").map do |topic_name|
+			Topic.where(name: topic_name).first_or_initialize
+		end
 		
 		if @appointment.save
 			redirect_to @appointment
