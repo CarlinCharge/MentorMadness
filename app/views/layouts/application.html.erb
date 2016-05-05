@@ -7,8 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Mentor Madness</h1>
-
+<h1>MentorForMe</h1>
+<h2>Welcome to MentorForMe, where a mentor and student can pair up to go-over specific topics related to programming.</h2>
+<p>If you're already registered, log in and get started!</p>
 
 <% flash.each do |name, msg| %>
   <%= content_tag(:div, msg, class: "alert") %>
