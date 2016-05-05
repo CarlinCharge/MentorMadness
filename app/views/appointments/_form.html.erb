@@ -1,0 +1,18 @@
+
+
+
+<%= form_for :appointment, url: new_user_appointment_path do |f| %>
+
+  <p>
+    
+    <%= f.datetime_select :start_time, :ampm => true, :start_year => 2011, :order => [:month, :day, :year] %>
+  </p>
+
+  <p>
+    <%= f.datetime_select :end_time, :ampm => true, :start_year => 2011, :order => [:month, :day, :year] %>
+  
+  </p>
+  <p>
+    <%= submit_tag "Create Appointment" %>
+  </p>
+<% end %>
