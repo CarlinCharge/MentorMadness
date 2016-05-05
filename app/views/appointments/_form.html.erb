@@ -1,7 +1,7 @@
 
 
 
-<%= form_for [@appointment] do |f| %>
+<%= form_for @appointment do |f| %>
 
   <p>
     Start Time:
@@ -21,6 +21,9 @@
     Teaching Strengths:<br>
     <%= f.text_area :body %> 
   </p>
+  Topics: 
+  <%= text_field_tag "topics" %>
+  
   <p>
     <%= f.submit "Create Appointment" %>
   </p>

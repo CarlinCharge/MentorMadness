@@ -11,12 +11,11 @@ class AppointmentsController < ApplicationController
 
 	def create
 		@appointment = Appointment.new(appointment_params)
-		@user = User.find_by(id: session[:user_id])
+		@appointment.mentor_id == current_user.id
 
-		@appointment.topics = []
 
-		@appointment.topics = params[:topic_names].split(" ").map do |topic_name|
-			Topic.where(name: topic_name).first_or_initialize
+		@appointment.topics = params[:topics].split(" ").map do |topic_name|
+			Topic.first_or_create(name: topic_name)
 		end
 
 		if @appointment.save
@@ -24,7 +23,6 @@ class AppointmentsController < ApplicationController
 			else
 				render 'new'
 			end
-		end
 	end
 
 	def show
