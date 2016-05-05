@@ -1,7 +1,7 @@
 
 
 
-<%= form_for [@appointment] do |f| %>
+<%= form_for '/appointments' do |f| %>
 
   <p>
     Start Time:
@@ -20,6 +20,10 @@
   <p>
     Teaching Strengths:<br>
     <%= f.text_area :body %> 
+  </p>
+  <p>
+  Topics(Separate by space [Example: Ruby Javascript REST])<br>
+    <%= f.text_field :topic_names %>
   </p>
   <p>
     <%= f.submit "Create Appointment" %>
