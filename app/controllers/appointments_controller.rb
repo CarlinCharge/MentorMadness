@@ -11,7 +11,7 @@ class AppointmentsController < ApplicationController
 
 	def create
 		@appointment = Appointment.new(appointment_params)
-		@user = User.find_by(id: session[:user_id])
+		@appointment.mentor_id == current_user.id
 
 		@appointment.topics = []
 
