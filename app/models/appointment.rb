@@ -6,13 +6,13 @@ class Appointment < ActiveRecord::Base
 
   validates :start_time, :end_time, :mentor_id, :phase, :body, presence: true
 
-  # validate :length_of_appointment_is_appropriate?
-  # validate :appointment_is_in_the_future?
+  validate :length_of_appointment_is_appropriate?
+  validate :appointment_is_in_the_future?
   # validate :overlap?
 
   def length_of_appointment_is_appropriate?
 
-    duration = ((self.end_time - self.start_time) * 24 * 60).to_i
+    duration = ((self.end_time - self.start_time)/60).to_i
 
     if duration != 30 && duration != 60
       self.errors.add(:end_time, "Appointments must be in 30 or 60 minute increments")
