@@ -7,16 +7,20 @@
   
     <li><%= appt.start_time.strftime('%m/%d/%y %H:%M') %> - <%= appt.end_time.strftime('%H:%M') %>
     <% if !(current_user.is_mentor?) %>
-    | <%= link_to "Book this appointment", appointment_path(appt) %></br>
-    </li>
+    | <%= link_to "View and Book it!", appointment_path(appt) %></br>
+    <% else %>
+    | <%= link_to "View Details", appointment_path(appt) %><br>
     <% end %>
+    </li>
   <% end %>
 <% end %>
 </ul>
 
 <h3>Your booked appointments</h3>
+<ul>
 <% @appointments.each do |appt| %>
   <% if appt.student_id != nil && (appt.student_id == current_user.id || appt.mentor_id == current_user.id) %>
-    <%= appt.start_time.strftime('%m/%d/%y %H:%M') %> - <%= appt.end_time.strftime('%H:%M') %></br>
+    <li><%= appt.start_time.strftime('%m/%d/%y %H:%M') %> - <%= appt.end_time.strftime('%H:%M') %> | <%= link_to "View Details", appointment_path(appt) %></li>
   <% end %>
 <% end %>
+</ul>
