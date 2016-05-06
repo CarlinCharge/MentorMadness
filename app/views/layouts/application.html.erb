@@ -2,13 +2,16 @@
 <html>
 <head>
   <title>MentorForMe</title>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" type="text/css" href="normalize.css">
+
   <%= csrf_meta_tags %>
 
 </head>
 <body>
+<div class="container">
 <h1>MentorForMe</h1>
 <h2>Welcome to MentorForMe, where a mentor and student can pair up to go-over specific topics related to programming.</h2>
 <p>If you're already registered, log in and get started!</p>
@@ -19,5 +22,6 @@
 
 <%= yield %>
 
+</div>
 </body>
 </html>
