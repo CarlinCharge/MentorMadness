@@ -1,4 +1,4 @@
-<h3>Book this appointment</h3>
+<h3>Appointment Details</h3>
 
 <ul>
   <li>Mentor:  <%= @mentor.full_name %></li>
@@ -14,4 +14,11 @@
   <%= form_for @appointment do |f| %>
     <%= f.submit "Book Me!" %>
   <% end %>
+<% end %>
+
+<hr>
+
+<% if @appointment.student_id == current_user.id %>
+  <h3>Add a review!</h3>
+  <%= render "reviews/form" %>
 <% end %>

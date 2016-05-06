@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
 		@appointment.topics = params[:topics].split(" ").map do |topic_name|
 			Topic.find_or_create_by(name: topic_name)
 		end
-		
+
 		if @appointment.save
 			redirect_to @appointment
 			else
@@ -29,6 +29,7 @@ class AppointmentsController < ApplicationController
 	def show
 		@appointment = Appointment.find(params[:id])
 		@mentor = User.find_by(id: @appointment.mentor_id)
+		@review = Review.new
 	end
 
 	def update
