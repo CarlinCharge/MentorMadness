@@ -21,13 +21,22 @@
 <ul>
   <% @reviews.each do |review| %>
     <li>
+      <h3><%= current_user.type %></h3>
+      Name: <%= current_user.full_name %><br>
       Rating: <%= review.rating %><br>
       Review: <%= review.body %>
     </li>
   <% end %>
 </ul>
 
-<% if (@appointment.student_id == current_user.id) && @reviews.empty? %>
-  <h3>Add a review!</h3>
-  <%= render '/reviews/form' %>
+<% if @appointment.end_time < DateTime.now %>
+  <% if (@appointment.student_id == current_user.id) && ((@appointment.reviews.where(user_id: current_user.id)) == []) %>
+    <h3>Add a review!</h3>
+    <%= render '/reviews/form' %>
+  <% end %>
+
+  <% if (@appointment.mentor_id == current_user.id) && ((@appointment.reviews.where(user_id: current_user.id)) == []) %>
+    <h3>Add a review!</h3>
+    <%= render '/reviews/form' %>
+  <% end %>
 <% end %>
