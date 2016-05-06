@@ -5,7 +5,7 @@
 <% @appointments.each do |appt| %>
   <% if appt.student_id == nil %>
 
-    <li><%= appt.start_time.strftime('%m/%d/%y %l:%M') %> - <%= appt.end_time.strftime('%l:%M %p') %></li>
+    <li><%= appt.start_time.strftime('%m/%d/%y %l:%M') %> - <%= appt.end_time.strftime('%l:%M %p') %>
 
     <% if !(current_user.is_mentor?) %>
     | <%= link_to "View and Book it!", appointment_path(appt) %></br>
