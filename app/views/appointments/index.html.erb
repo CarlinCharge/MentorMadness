@@ -1,14 +1,18 @@
 <h1>Appointments</h1>
 
 <h3> Available appointments </h3>
+<ul>
 <% @appointments.each do |appt| %>
   <% if appt.student_id == nil %>
-    <%= appt.start_time.strftime('%m/%d/%y %H:%M') %> - <%= appt.end_time.strftime('%H:%M') %>
+  
+    <li><%= appt.start_time.strftime('%m/%d/%y %H:%M') %> - <%= appt.end_time.strftime('%H:%M') %>
     <% if !(current_user.is_mentor?) %>
     | <%= link_to "Book this appointment", appointment_path(appt) %></br>
+    </li>
     <% end %>
   <% end %>
 <% end %>
+</ul>
 
 <h3>Your booked appointments</h3>
 <% @appointments.each do |appt| %>
