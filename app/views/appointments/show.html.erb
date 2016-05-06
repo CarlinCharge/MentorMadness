@@ -2,7 +2,7 @@
 
 <ul>
   <li>Mentor:  <%= @mentor.full_name %></li>
-  <li>Time:  <%= @appointment.start_time.strftime('%m/%d/%y %H:%M') %> - <%= @appointment.end_time.strftime('%H:%M') %></li>
+  <li>Time:  <%= @appointment.start_time.strftime('%m/%d/%y %l:%M') %> - <%= @appointment.end_time.strftime('%l:%M %p') %></li>
   <li>Phase:  <%= @appointment.phase %></li>
   <li>Notes:  <%= @appointment.body %></li>
   <li>Topics:  <% @appointment.topics.each do |topic| %>
