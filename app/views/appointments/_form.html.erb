@@ -1,4 +1,14 @@
-<%= form_for @appointment do |f| %>
+
+
+<% if @errors %>
+  <ul>
+    <% @errors.each do |message| %>
+      <li> <%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+  <%= form_for @appointment do |f| %>
 
   <p>
     Start Time:
