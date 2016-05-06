@@ -13,22 +13,23 @@ class AppointmentsController < ApplicationController
 		@appointment = Appointment.new(appointment_params)
 		@appointment.mentor_id = current_user.id
 
-
 		@appointment.topics = params[:topics].split(" ").map do |topic_name|
 			Topic.find_or_create_by(name: topic_name)
 		end
-		
+
 		if @appointment.save
 			redirect_to @appointment
-			else
-				@errors = @appointment.errors.full_messages
-				render 'new'
-			end
+		else
+			@errors = @appointment.errors.full_messages
+			render 'new'
+		end
 	end
 
 	def show
 		@appointment = Appointment.find(params[:id])
 		@mentor = User.find_by(id: @appointment.mentor_id)
+		@reviews = Review.where(appointment_id: @appointment.id)
+		@new_review = Review.new
 	end
 
 	def update

@@ -1,18 +1,19 @@
 class ReviewsController < ApplicationController
 
   def new
-    @review = Review.new
     @user = User.find_by(id: session[:user_id])
     @appointment = Appointment.find_by(id: params[:id])
+    @review = Review.new
   end
 
   def create
-    @appointment = Appointment.find_by(id: params[:id])
+    @appointment = Appointment.find_by(id: params[:appointment_id])
     @user = User.find_by(id: session[:user_id])
-    @review = Review.new(review_params)
+    @new_review = Review.new(rating: params[:review][:rating], body: params[:review][:body], user_id: session[:user_id], appointment_id: params[:appointment_id])
+    @reviews = Review.all
 
-    if @review.save
-      redirect_to appointment_review_path
+    if @new_review.save
+      redirect_to appointment_path(@appointment)
     else
       render 'new'
     end
