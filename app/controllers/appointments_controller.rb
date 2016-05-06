@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
 
 
 		@appointment.topics = params[:topics].split(" ").map do |topic_name|
-			Topic.first_or_create(name: topic_name)
+			Topic.find_or_create_by(name: topic_name)
 		end
 		
 		if @appointment.save
