@@ -21,6 +21,7 @@ class AppointmentsController < ApplicationController
 		if @appointment.save
 			redirect_to @appointment
 			else
+				@errors = @appointment.errors.full_messages
 				render 'new'
 			end
 	end
