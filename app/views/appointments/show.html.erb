@@ -1,0 +1,17 @@
+<h3>Book this appointment</h3>
+
+<ul>
+  <li>Mentor:  <%= @mentor.full_name %></li>
+  <li>Time:  <%= @appointment.start_time.strftime('%m/%d/%y %H:%M') %> - <%= @appointment.end_time.strftime('%H:%M') %></li>
+  <li>Phase:  <%= @appointment.phase %></li>
+  <li>Notes:  <%= @appointment.body %></li>
+  <li>Topics:  <% @appointment.topics.each do |topic| %>
+  <%= topic.name %>
+  <% end %></li>
+</ul>
+
+<% if !@appointment.is_booked? && !current_user.is_mentor?%>
+  <%= form_for @appointment do |f| %>
+    <%= f.submit "Book Me!" %>
+  <% end %>
+<% end %>
