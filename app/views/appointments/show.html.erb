@@ -1,6 +1,7 @@
+<div class="appt-show">
 <h3>Appointment Details</h3>
 
-<ul>
+<ul class="appt-details">
   <li>Mentor:  <%= @mentor.full_name %></li>
   
   <% if @appointment.is_booked? %>
@@ -22,7 +23,6 @@
   <% end %>
 <% end %>
 
-<hr>
 
 <ul>
   <% @reviews.each do |review| %>
@@ -46,3 +46,4 @@
     <%= render '/reviews/form' %>
   <% end %>
 <% end %>
+</div>

@@ -14,7 +14,7 @@
  *= require_self
  */
 
- h1 {
+ h1 h2 h3{
   font-family: Merriweather;
  }
 
@@ -25,22 +25,79 @@
  .container {
   max-width: 75%;
   margin: 0 auto;
-  text-align: center;
 
  }
+
+ .nav-bar {
+  text-align: center;
+  margin: 5px;
+  word-spacing: 10px;
+ }
+
+.button:hover {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
 
 a:visited {
 color: #000;
 }
 
 a:hover {
-  color: #519D9E;
+  color: white;
 }
 
-body {
-  background-color: #D1B6E1;
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px;
 }
 
+.logo {
+  text-align: center;
+}
+
+.welcome-container {
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #F0F0F0;
+}
+
+.welcome {
+  padding: 10px;
+}
+
+.log-in {
+  text-align: center;
+}
+
+.new-appt {
+  margin-left: 15%;
+}
+
+.appt-show {
+  margin-left: 15%;
+  padding: 25px;
+}
+
+.appt-link {
+  color: gray;
+}
+
+
+.appt-details {
+  margin: 10px;
+  padding: 15px;
+}
 
 textarea {
   width: 600px;
@@ -50,4 +107,6 @@ textarea {
   font-family: Merriweather, sans-serif;
   background-position: bottom right;
   background-repeat: no-repeat;
+  border-radius: 10px;
+  background-color: #F0F0F0;
 }
