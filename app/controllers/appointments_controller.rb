@@ -28,6 +28,7 @@ class AppointmentsController < ApplicationController
 	def show
 		@appointment = Appointment.find(params[:id])
 		@mentor = User.find_by(id: @appointment.mentor_id)
+		@student = User.find_by(id: @appointment.student_id)
 		@reviews = Review.where(appointment_id: @appointment.id)
 		@new_review = Review.new
 	end

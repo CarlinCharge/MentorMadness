@@ -4,23 +4,43 @@
 	<% if @appointments.empty? %>
 	<h2>You have not created an appointment, <%= link_to "Create one!", new_appointment_path %></h2>
 	<% else %>
-	<h2>Created Appointments</h2>
+	<h3>Created Appointments</h3>
 		<ul>
 		 <% @appointments.each do |appt| %> 
-		 	<% if appt.mentor_id == current_user.id %>
-		 	<li><%= appt.start_time.strftime('%m/%d/%y %l:%M') %> - <%= appt.end_time.strftime('%l:%M %p') %> | <%= link_to "View Details", appointment_path(appt) %><br>
-		 	<% end %>
+		 	 <% if appt.mentor_id == current_user.id %>
+		 	   <li><%= appt.start_time.strftime('%m/%d/%y %l:%M') %> - <%= appt.end_time.strftime('%l:%M %p') %> | <%= link_to "View Details", appointment_path(appt) %><br>
+		 	 <% end %>
 		 	</li>
-		 <% end %>
+     <% end %>
 		</ul>
+		<hr>
+			<h3>Booked Appointments</h3>
+			<ul>
+			 <% @appointments.each do |appt| %>
+			 <% if appt.student_id != nil && (appt.student_id == current_user.id || appt.mentor_id == current_user.id) %>
+			  <li><%= appt.start_time.strftime('%m/%d/%y %l:%M') %> - <%= appt.end_time.strftime('%l:%M %p') %> | <%= link_to "View Details", appointment_path(appt) %></li>
+			  <% end %>
+			<% end %>
+			</ul>
 		<% end %>
 <% end %>
+
+
+<h3>Past Appointments</h3>
+<ul>
+  <% @appointments.each do |appt| %>
+	  <% if appt.end_time < DateTime.now && appt.student_id != nil && (appt.student_id == current_user.id || appt.mentor_id == current_user.id) %>
+	    <li><%= appt.start_time.strftime('%m/%d/%y %l:%M') %> - <%= appt.end_time.strftime('%l:%M %p') %> | <%= link_to "View Details", appointment_path(appt) %></li>
+	  <% end %>
+</ul>
+<% end %>
+
 
 <% if !current_user.is_mentor? %>
 	<% if @appointments.empty? %>
   <h2>You haven't booked any appointments with a Mentor, <%= link_to "Book one!", appointments_path %></h2>
   <% else %>
-  <h2>Booked Appointments</h2>
+  <h3>Booked Appointments</h3>
 		<ul>
 		 <% @appointments.each do |appt| %> 
 		 	<% if appt.student_id != nil && (appt.student_id == current_user.id) %>
