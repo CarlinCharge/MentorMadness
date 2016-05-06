@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+ h1 {
+  font-family: Merriweather;
+ }
+
+ ul li {
+  list-style: none;
+ }
+
+ .container {
+  max-width: 75%;
+  margin: 0 auto;
+  text-align: center;
+
+ }
+
+a:visited {
+color: #000;
+}
+
+a:hover {
+  color: #519D9E;
+}
+
+body {
+  background-color: #D1B6E1;
+}
+
+
+textarea {
+  width: 600px;
+  height: 120px;
+  border: 3px solid #cccccc;
+  padding: 5px;
+  font-family: Merriweather, sans-serif;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
