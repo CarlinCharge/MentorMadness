@@ -12,9 +12,13 @@
 </head>
 <body>
 <div class="container">
-<h1>MentorForMe</h1>
-<h2>Welcome to MentorForMe, where a mentor and student can pair up to go-over specific topics related to programming.</h2>
-<p>If you're already registered, log in and get started!</p>
+
+<h1 class="logo">MentorForMe</h1>
+<div class="welcome-container">
+  <h2 class="welcome">Welcome to MentorForMe, where a mentor and student can pair up to go-over specific topics related to programming.</h2>
+</div>
+
+
 
 <% flash.each do |name, msg| %>
   <%= content_tag(:div, msg, class: "alert") %>

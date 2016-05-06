@@ -8,9 +8,9 @@
     <li><%= appt.start_time.strftime('%m/%d/%y %l:%M') %> - <%= appt.end_time.strftime('%l:%M %p') %>
 
     <% if !(current_user.is_mentor?) %>
-    | <%= link_to "View and Book it!", appointment_path(appt) %></br>
+    | <%= link_to "View and Book it!", appointment_path(appt), class: "appt-link" %></br>
     <% else %>
-    | <%= link_to "View Details", appointment_path(appt) %><br>
+    | <%= link_to "View Details", appointment_path(appt), class: "appt-link" %><br>
     <% end %>
     </li>
   <% end %>
@@ -21,7 +21,7 @@
 <ul>
 <% @appointments.each do |appt| %>
   <% if appt.student_id != nil && (appt.student_id == current_user.id || appt.mentor_id == current_user.id) %>
-    <li><%= appt.start_time.strftime('%m/%d/%y %l:%M') %> - <%= appt.end_time.strftime('%l:%M %p') %> | <%= link_to "View Details", appointment_path(appt) %></li>
+    <li><%= appt.start_time.strftime('%m/%d/%y %l:%M') %> - <%= appt.end_time.strftime('%l:%M %p') %> | <%= link_to "View Details", appointment_path(appt), class: "appt-link" %></li>
   <% end %>
 <% end %>
 </ul>
