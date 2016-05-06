@@ -4,4 +4,9 @@ class User < ActiveRecord::Base
 
 validates :full_name, :type, presence: true
 validates :email, presence: true, uniqueness: true
+
+  def is_mentor?
+    self.type == "Mentor"
+  end
+
 end

@@ -1,0 +1,9 @@
+<ul>
+  <% @appointments.each do |appt| %>
+    <% if appt.student_id != nil %>
+    <li>
+      <%= appt.start_time.strftime('%m/%d/%y %H:%M') %> - <%= appt.end_time.strftime('%H:%M') %>
+    </li>
+    <% end %>
+  <% end %>
+</ul>

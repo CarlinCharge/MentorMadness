@@ -27,13 +27,14 @@ class AppointmentsController < ApplicationController
 
 	def show
 		@appointment = Appointment.find(params[:id])
+		@mentor = User.find_by(id: @appointment.mentor_id)
 	end
 
 	def update
 		@appointment = Appointment.find(params[:id])
 		@appointment.student_id = session[:user_id]
-		if @appointment.update(appointment_params)
-			redirect_to @appointment
+		if @appointment.update(student_id: session[:user_id])
+			redirect_to appointments_path
 		else
 			flash.now.alert = "Unable to book appointment."
 			render 'index'
