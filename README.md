@@ -1,8 +1,8 @@
 ![Project Schema](https://github.com/CarlinCharge/MentorMadness/blob/master/Schema.png?raw=true)
 
-# H1 Mentor User Story:
+# Mentor User Story:
 
-## H2 Log In
+## Log In
 
 * Profile page
 
@@ -16,16 +16,16 @@
 * Update appointments
 
 
-# H1 Student User Story:
+# Student User Story:
 
-## H2 Log In
+## Log In
 
 * Book an appointment
 * See all booked appointments
 
 
 
-## H2 Default User Story
+## Default User Story
 
 * Create a review
 * Delete an appointment
