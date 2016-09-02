@@ -1,4 +1,4 @@
-![Project Schema](https://raw.githubusercontent.com/nyc-rock-doves-2016/MentorMadness/schema/Schema.png)
+![Project Schema](https://github.com/CarlinCharge/MentorMadness/blob/master/Schema.png?raw=true)
 
 # H1 Mentor User Story:
 
